@@ -1,0 +1,27 @@
+{
+  "name": "final-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e ts --dir src/ --exec \"npm start\"",
+    "server": "node src/index.js",
+    "build:ts": "tsc -p .",
+    "start": "npm run build:ts && npm run server"
+  },
+  "dependencies": {
+    "@types/body-parser": "*",
+    "@types/express": "*",
+    "@types/lodash": "^4.14.86",
+    "@types/mysql": "*",
+    "body-parser": "*",
+    "express": "*",
+    "lodash": "^4.17.4",
+    "mysql": "*",
+    "typescript": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
