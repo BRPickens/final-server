@@ -10,21 +10,21 @@ const router = express.Router();
 
 app
     .use(bodyParser.urlencoded({extended: true}))
-    .use('api', router)
-    .get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
+    // .use('/api', router)
+    .get('/api', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
         procedure('spGetMovies')
             .then((movies) => {
                 res.json(movies[0])
             })
     })
-    .get('/:id', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
+    .get('/api/:id', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
         procedure('spGetMovie', [+req.params.id])
             .then((movies) => {
                 res.json(movies[0][0])
             })
     })
-    .post('/', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
-        procedure('spGetMovie', [req.body.movie, req.body.director, req.body.poster])
+    .post('/api', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
+        procedure('spInsertMovie', [req.body.movie, req.body.director, req.body.poster])
             .then((id) => {
                 res.json(id)
             })

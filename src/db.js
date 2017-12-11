@@ -5,9 +5,9 @@ const lodash_1 = require("lodash");
 exports.default = () => { };
 const poolConfig = {
     host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'Final',
+    user: 'BRPickens',
+    password: 'final',
+    database: 'finaldatabase',
     connectionLimit: 8
 };
 exports.pool = mysql_1.createPool(poolConfig);

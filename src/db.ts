@@ -5,9 +5,9 @@ export default () => { };
 
 const poolConfig: PoolConfig = {
     host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'Final',
+    user: 'BRPickens',
+    password: 'final',
+    database: 'finaldatabase',
     connectionLimit: 8
 };
 
