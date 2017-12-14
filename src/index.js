@@ -6,6 +6,7 @@ const db_1 = require("./db");
 const app = express();
 const router = express.Router();
 app
+    .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }))
     .get('/api', (req, res, next) => {
     db_1.procedure('spGetMovies')
@@ -20,9 +21,9 @@ app
     });
 })
     .post('/api', (req, res, next) => {
-    db_1.procedure('spInsertMovie', [req.body.movie, req.body.director, req.body.poster])
-        .then((id) => {
-        res.json(id);
+    db_1.procedure('spInsertMovie', [req.body.title, req.body.director, req.body.poster])
+        .then((sets) => {
+        return res.json(sets[0][0]);
     });
 });
 app.listen(3000, () => {

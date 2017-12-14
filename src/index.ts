@@ -9,6 +9,7 @@ const app = express();
 const router = express.Router();
 
 app
+    .use(bodyParser.json())
     .use(bodyParser.urlencoded({extended: true}))
     // .use('/api', router)
     .get('/api', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
@@ -24,9 +25,9 @@ app
             })
     })
     .post('/api', (req: express.Request, res: express.Response, next: express.NextFunction) => { 
-        procedure('spInsertMovie', [req.body.movie, req.body.director, req.body.poster])
-            .then((id) => {
-                res.json(id)
+        procedure('spInsertMovie', [req.body.title, req.body.director, req.body.poster])
+            .then((sets) => {
+                return res.json(sets[0][0])
             })
     })
 
